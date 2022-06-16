@@ -1,0 +1,27 @@
+﻿@page "/blazorform"
+<h3>BlazorForm</h3>
+
+<EditForm Model="m_exampleItem" OnValidSubmit="@btnSubmitClick">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+    <InputText id="txtName" @bind-Value="m_exampleItem.Name"></InputText>
+    <ValidationMessage For="@(() => m_exampleItem.Name)"></ValidationMessage>
+    <button type="submit">Submit</button>
+</EditForm>
+<hr />
+@m_exampleItem.Name
+
+@code {
+    private ExampleItem m_exampleItem = new ExampleItem();
+
+    protected override void OnInitialized()
+    {
+        //m_exampleItem.Name = "Ilshin";
+        base.OnInitialized();
+    }
+
+    private void btnSubmitClick()
+    {
+
+    }
+}
